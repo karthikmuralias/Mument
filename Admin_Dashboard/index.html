@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Gym Admin Dashboard</title>
+    <title>Gym Control Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="container">
+<div class="sidebar">
+    <h2>🏋 GYM PRO</h2>
+    <ul>
+        <li class="active">Dashboard</li>
+        <li>Members</li>
+        <li>Analytics</li>
+    </ul>
+</div>
 
-    <h1>GYM ADMIN DASHBOARD</h1>
+<div class="main">
+
+    <div class="topbar">
+        <h1>Admin Dashboard</h1>
+        <button class="add-btn" onclick="openModal()">+ Add Member</button>
+    </div>
 
     <div class="stats">
-        <div class="card">Active Members: <span id="activeCount">0</span></div>
-        <div class="card">Today Check-ins: <span id="todayCheckins">0</span></div>
-        <div class="card">Expiring Soon: <span id="expiringSoon">0</span></div>
-        <div class="card">Monthly Revenue: ₹<span id="revenue">0</span></div>
+        <div class="stat-card">
+            <h3>Active Members</h3>
+            <p id="activeCount">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Today Check-ins</h3>
+            <p id="todayCheckins">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Expiring Soon</h3>
+            <p id="expiringSoon">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Revenue</h3>
+            <p>₹<span id="revenue">0</span></p>
+        </div>
     </div>
 
-    <div class="actions">
-        <input type="text" id="search" placeholder="Search Member...">
-        <button onclick="openModal()">Add Member</button>
-        <button onclick="exportCSV()">Export CSV</button>
+    <div class="member-section">
+        <input type="text" id="search" placeholder="Search members..." onkeyup="filterMembers()">
+        <div id="memberList" class="member-grid"></div>
     </div>
 
-    <div id="memberList"></div>
 </div>
 
 <!-- Modal -->
 <div id="modal" class="modal">
     <div class="modal-content">
-        <h2>Add New Member</h2>
+        <h2>Register New Member</h2>
         <input type="text" id="name" placeholder="Name">
         <input type="email" id="email" placeholder="Email">
         <input type="number" id="payment" placeholder="Payment Amount">
-        <button onclick="addMember()">Submit</button>
-        <button onclick="closeModal()">Cancel</button>
+        <button onclick="addMember()">Register</button>
+        <button class="cancel" onclick="closeModal()">Cancel</button>
     </div>
 </div>
 

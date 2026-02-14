@@ -1,0 +1,25 @@
+{
+    "name": "gym-attendance-admin-dashboard",
+    "version": "1.0.0",
+    "description": "Admin dashboard for gym attendance tracking system",
+    "main": "app.js",
+    "scripts": {
+        "start": "http-server",
+        "dev": "http-server -p 8000",
+        "build": "echo 'Build script'",
+        "test": "echo 'Test script'"
+    },
+    "keywords": [
+        "gym",
+        "attendance",
+        "admin",
+        "dashboard"
+    ],
+    "author": "Adwaidhmanu",
+    "license": "MIT",
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "chart.js": "^3.9.1"
+    }
+}

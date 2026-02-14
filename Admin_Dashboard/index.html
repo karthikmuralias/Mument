@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Attendance Admin Dashboard</title>
+    <title>Gym Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Barlow:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div id="root"></div>
-    <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="app.js" type="module"></script>
-</body>
 
+<div class="container">
+
+    <h1>GYM ADMIN DASHBOARD</h1>
+
+    <div class="stats">
+        <div class="card">Active Members: <span id="activeCount">0</span></div>
+        <div class="card">Today Check-ins: <span id="todayCheckins">0</span></div>
+        <div class="card">Expiring Soon: <span id="expiringSoon">0</span></div>
+        <div class="card">Monthly Revenue: ₹<span id="revenue">0</span></div>
+    </div>
+
+    <div class="actions">
+        <input type="text" id="search" placeholder="Search Member...">
+        <button onclick="openModal()">Add Member</button>
+        <button onclick="exportCSV()">Export CSV</button>
+    </div>
+
+    <div id="memberList"></div>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h2>Add New Member</h2>
+        <input type="text" id="name" placeholder="Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="number" id="payment" placeholder="Payment Amount">
+        <button onclick="addMember()">Submit</button>
+        <button onclick="closeModal()">Cancel</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
